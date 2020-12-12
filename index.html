@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Countdown timer</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <script src="js/countdown.js"></script>
+</head>
+
+<body>
+  <div class="topnav" id="myTopnav">
+    <a href="#home" class="active">Home</a>
+    <a href="#cont">Contact</a>
+    <a href="#about">About</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+  <div id="home">
+    <h1 class="center">COUNTDOWN TO <br /><span class="center" id="New_year_text">New year 2021.</span></h1>
+    <div class="center">
+      <div id="div1" class="fa">
+      </div>
+    </div>
+
+    <h2 class="center" id="demo"></h2>
+
+    <script>
+      function hourglass() {
+        var a;
+        a = document.getElementById("div1");
+        a.innerHTML = "&#xf251;";
+        setTimeout(function() {
+          a.innerHTML = "&#xf252;";
+        }, 1000);
+        setTimeout(function() {
+          a.innerHTML = "&#xf253;";
+        }, 2000);
+      }
+      hourglass();
+      setInterval(hourglass, 3000);
+    </script>
+    <div class="slideshow-container">
+
+      <div class="mySlides">
+        <q>I love you the more in that I believe you had liked me for my own sake and for nothing else</q>
+        <p class="author">- John Keats</p>
+      </div>
+
+      <div class="mySlides">
+        <q>But man is not made for defeat. A man can be destroyed but not defeated.</q>
+        <p class="author">- Ernest Hemingway</p>
+      </div>
+
+      <div class="mySlides">
+        <q>I have not failed. I've just found 10,000 ways that won't work.</q>
+        <p class="author">- Thomas A. Edison</p>
+      </div>
+
+      <a class="prev" onclick="plusSlides(-1)">❮</a>
+      <a class="next" onclick="plusSlides(1)">❯</a>
+
+    </div>
+
+    <div class="dot-container">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+    <script>
+      var slideIndex = 1;
+      showSlides(slideIndex);
+
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
+
+      function currentSlide(n) {
+        showSlides(slideIndex = n);
+      }
+
+      function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {
+          slideIndex = 1
+        }
+        if (n < 1) {
+          slideIndex = slides.length
+        }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+      }
+    </script>
+  </div>
+  <div id="cont">
+    <div class="container">
+      <form id="contact" action="#" method="post">
+        <h3>Quick Contact</h3>
+        <h4>Contact us today, and get reply with in 24 hours!</h4>
+        <fieldset>
+          <input placeholder="Your name" type="text" tabindex="1" required autofocus>
+        </fieldset>
+        <fieldset>
+          <input placeholder="Your Email Address" type="email" tabindex="2" required>
+        </fieldset>
+        <fieldset>
+          <input placeholder="Your Phone Number" type="tel" tabindex="3" required>
+        </fieldset>
+        <fieldset>
+          <input placeholder="Your Web Site starts with http://" type="url" tabindex="4" required>
+        </fieldset>
+        <fieldset>
+          <textarea placeholder="Type your Message Here...." tabindex="5" required></textarea>
+        </fieldset>
+        <fieldset>
+          <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+  <div class="chat">
+    <button class="open-button" onclick="openForm()">Chat</button>
+
+    <div class="chat-popup" id="myForm">
+      <form action="/action_page.php" class="form-container">
+        <h1>Chat</h1>
+
+        <label for="msg"><b>Message</b></label>
+        <textarea placeholder="Type message.." name="msg" required></textarea>
+
+        <button type="submit" class="btn">Send</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+      </form>
+    </div>
+  </div>
+  <script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+
+<div id="about">
+   <section class="text-center about">
+      <h1 class="center">About US</h1>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-sm-6 col-ex-12 about-item wow lightSpeedIn" data-wow-offset="200" >
+            <span class="fa fa-group"></span>
+            <h2>Section 1</h2>
+            <p class="lead">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled</p>
+          </div>
+          <div class="col-lg-4 col-sm-6 col-ex-12 about-item wow lightSpeedIn" data-wow-offset="200">
+            <span class="fa fa-info"></span>
+            <h2>Section 2 </h2>
+            <p class="lead">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum </p>
+          </div>
+          <div class="clearfix visible-md-block visible-sm-block"></div>
+          <div class="col-lg-4 col-sm-6 col-ex-12 about-item wow lightSpeedIn" data-wow-offset="200">
+            <span class="fa fa-file"></span>
+            <h2>Section 3</h2>
+            <p class="lead">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+</div>
+</body>
+
+</html>
